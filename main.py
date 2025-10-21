@@ -1,14 +1,11 @@
-def main():
-    print("Not all types are currently supported.")
-    print("Please check the source code for a detailed list of supported types.")
-    print()
-    print("Byte order and pad bytes can be omitted in the input, they are ignored nevertheless.")
-    data: str = input("Enter format: ")
+import tkinter as tk
 
+
+def calculate(fmt: str) -> int:
     length: int = 0
-    str_length_var_string: str = ""
+    n: str = ""
 
-    for char in data:
+    for char in fmt:
         match char:
             case "c": length += 1
             case "b": length += 1
@@ -28,16 +25,42 @@ def main():
             case "F": length += 8
             case "D": length += 16
             case "s":
-                length += int(str_length_var_string)
-                str_length_var_string = ""
+                length += int(n)
+                n = ""
             case _:
                 if char.isdigit():
-                    str_length_var_string += char
+                    n += char
                 else:
                     length += 0
 
-    print(f"Length: {length}")
+    return length
+
+
+def update(*args) -> None:
+    print(*args)
+    fmt = input_variable.get()
+    output_variable.set(str(calculate(fmt)))
 
 
 if __name__ == "__main__":
-    main()
+    root = tk.Tk()
+    root.title("StructFormatLength")
+
+    root.option_add("*font", "Arial 18")
+
+    root.grid_rowconfigure(0, weight=1)
+    root.grid_columnconfigure(0, weight=1)
+
+    input_variable = tk.StringVar()
+    input_entry = tk.Entry(root, justify="center", textvariable=input_variable)
+    input_entry.grid(sticky="ew", ipadx=20, ipady=10)
+
+    input_variable.trace("w", update)
+
+    output_variable = tk.StringVar()
+    output_entry = tk.Entry(root, justify="center", state="readonly", textvariable=output_variable)
+    output_entry.grid(sticky="ew", ipadx=20, ipady=10)
+
+    output_variable.set("0")
+
+    root.mainloop()
