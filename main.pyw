@@ -36,15 +36,15 @@ def calculate(fmt: str) -> int:
     return length
 
 
-def update(*args) -> None:
-    print(*args)
+def update(*_) -> None:
     fmt = input_variable.get()
     output_variable.set(str(calculate(fmt)))
 
 
 if __name__ == "__main__":
     root = tk.Tk()
-    root.title("StructFormatLength")
+    root.title("structformatlength")
+    root.resizable(False, False)
 
     root.option_add("*font", "Arial 18")
 
