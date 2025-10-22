@@ -25,6 +25,9 @@ def calculate(fmt: str) -> int:
             case "F": length += 8
             case "D": length += 16
             case "s":
+                if n == "":
+                    length += 0
+                    continue
                 length += int(n)
                 n = ""
             case _:
