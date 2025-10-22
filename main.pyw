@@ -46,7 +46,7 @@ if __name__ == "__main__":
     root.title("structformatlength")
     root.resizable(False, False)
 
-    root.option_add("*font", "Arial 18")
+    root.option_add("*font", "Arial 16")
 
     root.grid_rowconfigure(0, weight=1)
     root.grid_columnconfigure(0, weight=1)
