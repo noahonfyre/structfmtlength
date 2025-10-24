@@ -1,6 +1,15 @@
 # structformatlength
 structformatlength (sfl) is a small Python tool for quick and dirty calculation of byte lengths.
 
+## Table of contents
+<!-- TOC -->
+* [structformatlength](#structformatlength)
+  * [Table of contents](#table-of-contents)
+  * [Introduction](#introduction)
+  * [Installation](#installation)
+  * [Usage](#usage)
+<!-- TOC -->
+
 ## Introduction
 This project is helpful when working with the Python standard library [struct](https://docs.python.org/3/library/struct.html) which is used to convert bytes to Python values through formats. Formats consist of the byte order and a composition of characters representing a certain type.
 
