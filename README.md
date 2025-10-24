@@ -70,4 +70,5 @@ python main.pyw
 
 ## Usage
 Enter the format in the upper input. The calculated length is shown automatically in the lower entry and can be easily copied and pasted.
+
 ![gui_preview.png](img/gui_preview.png)
