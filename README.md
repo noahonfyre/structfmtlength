@@ -1,10 +1,9 @@
 # structformatlength
 structformatlength (sfl) is a Python tool for quick and dirty calculation of byte lengths.
 
-This project is helpful when working with the Python standard library [struct](https://docs.python.org/3/library/struct.html) which is used to convert bytes to Python values through formats.
-Formats consist of the byte order and a composition of characters representing a certain type.
+This project is helpful when working with the Python standard library [struct](https://docs.python.org/3/library/struct.html) which is used to convert bytes to Python values through formats. Formats consist of the byte order and a composition of characters representing a certain type.
 
-The byte order is ignored in the conversion process in this program and can therefore be omitted. Below is just a quick reference.
+The byte order is ignored in the conversion process in this program and can therefore be omitted. Below is just a quick reference:
 
 | Character | Byte order             | Size     | Alignment |
 |-----------|------------------------|----------|-----------|
@@ -14,7 +13,7 @@ The byte order is ignored in the conversion process in this program and can ther
 | \>        | big-endian             | standard | none      |
 | !         | network (= big-endian) | standard | none      |
 
-Below is a list of all format parts supported by sfm.
+Here's a list of all formats supported by sfl:
 
 | Format | C Type             | Python type       | Standard size |
 |--------|--------------------|-------------------|---------------|
@@ -36,7 +35,7 @@ Below is a list of all format parts supported by sfm.
 | d      | double             | float             | 8             |
 | F      | float complex      | complex           | 8             |
 | D      | double complex     | complex           | 16            |
-| s      | char[]             | bytes             |               |
-| p      | char[]             | bytes             |               |
+| s      | char[]             | bytes             | variable      |
+| p      | char[]             | bytes             | variable      |
 
-The format is assumed to already be implemented in the code, so for the calculator to work, the right format is assumed. If a faulty one is provided, [a faulty result will likely follow](https://en.wikipedia.org/wiki/Garbage_in,_garbage_out).
+The format is assumed to already be implemented in the code, so for the calculator to work, the right format is assumed. If a faulty one is provided, [a faulty result may follow](https://en.wikipedia.org/wiki/Garbage_in,_garbage_out).
