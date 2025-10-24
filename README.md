@@ -1,6 +1,7 @@
 # structformatlength
-structformatlength (sfl) is a Python tool for quick and dirty calculation of byte lengths.
+structformatlength (sfl) is a small Python tool for quick and dirty calculation of byte lengths.
 
+## Introduction
 This project is helpful when working with the Python standard library [struct](https://docs.python.org/3/library/struct.html) which is used to convert bytes to Python values through formats. Formats consist of the byte order and a composition of characters representing a certain type.
 
 The byte order is ignored in the conversion process in this program and can therefore be omitted. Below is just a quick reference:
@@ -39,3 +40,25 @@ Here's a list of all formats supported by sfl:
 | p      | char[]             | bytes             | variable      |
 
 The format is assumed to already be implemented in the code, so for the calculator to work, the right format is assumed. If a faulty one is provided, [a faulty result may follow](https://en.wikipedia.org/wiki/Garbage_in,_garbage_out).
+
+## Installation
+In order to install/run this program, you need to have Git and Python installed.
+
+First, clone the repository from GitHub. As sfl only requires the tkinter library for the GUI, which is a standard library, no extra dependencies are needed.
+````powershell
+git clone --branch master https://github.com/noahonfyre/structformatlength
+````
+
+Navigate to the newly cloned folder in your explorer or use your terminal:
+````powershell
+cd structformatlength
+````
+
+Run the program by double-clicking (when configured) or running the following command:
+````powershell
+python main.pyw
+````
+
+## Usage
+Enter the format in the upper input. The calculated length is shown automatically in the lower entry and can be easily copied and pasted.
+![gui_preview.png](img/gui_preview.png)
