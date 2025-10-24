@@ -2,46 +2,48 @@ import tkinter as tk
 
 
 def calculate(fmt: str) -> int:
+    var_sizes: set[str] = {"s", "p"}
+    sizes: dict[str, int] = {
+        "c": 1,
+        "b": 1,
+        "B": 1,
+        "?": 1,
+        "h": 2,
+        "H": 2,
+        "e": 2,
+        "i": 4,
+        "I": 4,
+        "l": 4,
+        "L": 4,
+        "f": 4,
+        "q": 8,
+        "Q": 8,
+        "d": 8,
+        "F": 8,
+        "D": 16,
+    }
+
     length: int = 0
-    n: str = ""
+    buffer: str = ""
 
     for char in fmt:
-        match char:
-            case "c": length += 1
-            case "b": length += 1
-            case "B": length += 1
-            case "?": length += 1
-            case "h": length += 2
-            case "H": length += 2
-            case "i": length += 4
-            case "I": length += 4
-            case "l": length += 4
-            case "L": length += 4
-            case "q": length += 8
-            case "Q": length += 8
-            case "e": length += 2
-            case "f": length += 4
-            case "d": length += 8
-            case "F": length += 8
-            case "D": length += 16
-            case "s":
-                if n == "":
-                    length += 0
-                    continue
-                length += int(n)
-                n = ""
-            case _:
-                if char.isdigit():
-                    n += char
-                else:
-                    length += 0
+        if char.isdigit():
+            buffer += char
+            continue
+
+        if char in var_sizes:
+            length += int(buffer)
+            buffer = ""
+        elif char in sizes:
+            length += sizes[char]
 
     return length
 
 
 def update(*_) -> None:
-    fmt = input_variable.get()
-    output_variable.set(str(calculate(fmt)))
+    fmt: str = input_variable.get()
+    text: str = str(calculate(fmt))
+    output_variable.set(text)
 
 
 if __name__ == "__main__":
