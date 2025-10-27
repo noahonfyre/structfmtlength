@@ -32,7 +32,7 @@ def calculate(fmt: str) -> int:
             continue
 
         if char in var_sizes:
-            length += int(buffer)
+            length += int(buffer or 0)
             buffer = ""
         elif char in sizes:
             length += sizes[char]
