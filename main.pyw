@@ -58,13 +58,13 @@ if __name__ == "__main__":
 
     input_variable = tk.StringVar()
     input_entry = tk.Entry(root, justify="center", textvariable=input_variable)
-    input_entry.grid(sticky="ew", ipadx=20, ipady=10)
+    input_entry.grid(sticky="nsew", ipadx=20, ipady=10)
 
     input_variable.trace("w", update)
 
     output_variable = tk.StringVar()
     output_entry = tk.Entry(root, justify="center", state="readonly", textvariable=output_variable)
-    output_entry.grid(sticky="ew", ipadx=20, ipady=10)
+    output_entry.grid(sticky="nsew", ipadx=20, ipady=10)
 
     output_variable.set("0")
 
